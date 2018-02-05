@@ -4,17 +4,24 @@
 using namespace std;
 
 
-static int isPos(double num)
+static void isPos(double num)
 {
 
-  double is_inf = 1/num;
-
-  //double INF = 1/0;
-
-  if(is_inf == inf)
-    cout << "pos 0" << endl;
+  if(signbit(num) == 0)
+    cout << "positive" << endl;
   else
-    cout << "not pos 0" << endl;
+    cout << "not positive" << endl;
+
+}
+
+
+static void isNeg(double num)
+{
+
+  if(signbit(num) == 1)
+    cout << "negative" << endl;
+  else
+    cout << "not negative" << endl;
 
 }
 
@@ -27,17 +34,16 @@ int main()
   y = -0.0;
 
   r1 = 1/x;   //pos inf
-  r2 = 1/y;   //pos inf
+  r2 = 1/y;   //neg inf
 
   double s1 = 1/r1;
   double s2 = 1/r2;
 
-  isPos(s1);
-  isPos(s2);
+  isPos(y);
+  //isPos(y);
 
-  //r2 = y/x;
 
-  printf("%f %f\n\n", r1, r2);
-  cout << "r1 = " << r1 << " r2 = " << r2 << " s1 = " << s1 << " s2 = " << s2 << endl << endl;
+  //printf("%f %f\n\n", r1, r2);
+  //cout << "r1 = " << r1 << " r2 = " << r2 << " s1 = " << s1 << " s2 = " << s2 << endl << endl;
 
 }
